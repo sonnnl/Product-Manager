@@ -1,6 +1,8 @@
-module.exports.index = (req, res) => {
+const Product = require("../../models/product.model");
+module.exports.index = async (req, res) => {
+  const products = await Product.find({});
   res.render("client/pages/products/index", {
-    title: "Danh sach san pham",
-    message: "Deo co san pham nao dau ku",
+    pageTitle: "Danh sách sản phẩm",
+    products: products,
   });
 };
