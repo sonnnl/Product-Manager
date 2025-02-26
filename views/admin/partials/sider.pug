@@ -1,0 +1,66 @@
+#sidebar
+  .sidebar-header
+    h3
+      img.img-fluid(src='/admin/img/logo.jpg' alt='' style='width: 60px;border-radius:50%')
+      span TTS design
+  ul.list-unstyled.component.m-0
+    li.active
+      a.dashboard(href=`${prefixAdmin}/dashboard`)
+        i.material-icons dashboard
+        |                             Dashboard
+    li.dropdown
+      a.dropdown-toggle(href='#homeSubmenu1' data-bs-toggle='collapse' aria-expanded='false')
+        i.material-icons aspect_ratio
+        |                             Layouts
+      ul#homeSubmenu1.collapse.list-unstyled.menu
+        li
+          a(href='#') Home1
+        li
+          a(href='#') Home1
+        li
+          a(href='#') Home1
+    li.dropdown
+      a.dropdown-toggle(href='#homeSubmenu2' data-bs-toggle='collapse' aria-expanded='false')
+        i.material-icons apps
+        |                             Apps
+      ul#homeSubmenu2.collapse.list-unstyled.menu
+        li
+          a(href='#') Apps 1
+        li
+          a(href='#') Apps 2
+        li
+          a(href='#') Apps 3
+    li.dropdown
+      a.dropdown-toggle(href='#homeSubmenu3' data-bs-toggle='collapse' aria-expanded='false')
+        i.material-icons equalizer
+        |                             Equalizer
+      ul#homeSubmenu3.collapse.list-unstyled.menu
+        li
+          a(href='#') Pages 1
+        li
+          a(href='#') Pages 2
+        li
+          a(href='#') Pages 3
+    li.dropdown
+      a.dropdown-toggle(href='#homeSubmenu4' data-bs-toggle='collapse' aria-expanded='false')
+        i.material-icons(style='width: 24px;') extensions
+        |                             UI Element
+      ul#homeSubmenu4.collapse.list-unstyled.menu
+        li
+          a(href='#') Pages 1
+        li
+          a(href='#') Pages 2
+        li
+          a(href='#') Pages 3
+    li
+      a(href=`${prefixAdmin}/product`)
+        i.material-icons shopping_bag
+        |                             Products
+    li
+      a(href='#')
+        i.material-icons date_range
+        |                             Copy
+    li
+      a(href='#')
+        i.material-icons library_books
+        |                             Calendar

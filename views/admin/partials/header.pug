@@ -1,0 +1,71 @@
+
+.top-navbar
+  .xp-topbar
+    .row
+      .col-2.col-md-1.col-lg-1.order-2.order-md-1.align-self-center
+        .xp-menubar
+          span.material-icons.text-white
+            | signal_cellular_alt
+      .col-md-5.col-lg-3.order-3.order-md-2
+        .xp-searchbar
+          form(action)
+            .input-group
+              input.form-control(type="search", placeholder="Search", name, id)
+              .input-group-append
+                button#button-addon2.btn(type="submit") Go
+      .col-10.col-md-6.col-lg-8.order-1.order-md-3
+        .xp-profilebar.text-right
+          nav.nav.p-0
+            ul.nav.navbar-nav.flex-row.ms-auto
+              li.nav-item.dropdown
+                a#notificationDropdown.nav-link.dropdown-toggle(href="#", role="button", data-bs-toggle="dropdown", aria-expanded="false")
+                  span.material-icons notifications
+                  span.notification.badge.bg-danger 4
+                ul.dropdown-menu.dropdown-menu-end(aria-labelledby="notificationDropdown")
+                  li
+                    a.dropdown-item(href="#")
+                      | You Have 4
+                      | New
+                      | Messages
+                  li
+                    a.dropdown-item(href="#")
+                      | You Have 4
+                      | New
+                      | Messages
+                  li
+                    a.dropdown-item(href="#")
+                      | You Have 4
+                      | New
+                      | Messages
+                  li
+                    a.dropdown-item(href="#")
+                      | You Have 4
+                      | New
+                      | Messages
+              li.nav-item
+                a.nav-link(href="#")
+                  span.material-icons question_answer
+              li.dropdown.nav-item
+                a.nav-link(href, data-bs-toggle="dropdown")
+                  img(src="/admin/img/avt.jpg", alt, style="width: 40px;border-radius: 50%;")
+                  span.xp-user-live
+                ul.dropdown-menu
+                  li
+                    a(href="#")
+                      span.material-icons person_outline
+                      | Profile
+                  li
+                    a(href="#")
+                      span.material-icons settings
+                      | Settings
+                  li
+                    a(href="#")
+                      span.material-icons logout
+                      | Logout
+    .xp-breadcrumbbar.text-center
+      h4.page-title Dashboard
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href="#") TranThaiSon
+        li.breadcrumb-item.active(aria-current="page")
+          | Dashboard
