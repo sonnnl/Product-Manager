@@ -1,0 +1,92 @@
+// add-modal
+#addProductModal.modal.fade(tabindex="-1", aria-labelledby="addProductModalLabel", aria-hidden="true")
+  .modal-dialog.modal-lg
+    .modal-content.w-100
+      .modal-header.bg-primary.text-white
+        h5#addProductModalLabel.modal-title Thêm sản phẩm
+        button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+      .modal-body
+        form
+          .row
+            // Name input
+            .col-md-6.mb-3
+              label.form-label(for="name1") Name
+              input#name1.form-control(type="text", required)
+            // Email input
+            .col-md-6.mb-3
+              label.form-label(for="email1") Email address
+              input#email1.form-control(type="email", required)
+            // Phone input
+            .col-md-6.mb-3
+              label.form-label(for="phone1") Phone Number
+              input#phone1.form-control(type="number", required)
+            // Address input
+            .col-md-6.mb-3
+              label.form-label(for="address1") Address
+              textarea#address1.form-control(rows="2", required)
+            // Buttons
+            .d-flex.justify-content-end
+              button.btn.btn-secondary.me-2(type="button", data-bs-dismiss="modal") Cancel
+              button.btn.btn-primary(type="submit") Add
+// end add modal
+// edit modal
+#editProductModal.modal.fade(tabindex="-1", aria-labelledby="editProductModalLabel", aria-hidden="true")
+  .modal-dialog.modal-lg
+    .modal-content.w-100
+      .modal-header.bg-primary.text-white
+        h5#editProductModalLabel.modal-title Sửa sản phẩm
+        button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+      .modal-body
+        form
+          .row
+            // Name input
+            .col-md-6.mb-3
+              label.form-label(for="name1") Name
+              input#name1.form-control(type="text", required)
+            // Email input
+            .col-md-6.mb-3
+              label.form-label(for="email1") Email address
+              input#email1.form-control(type="email", required)
+            // Phone input
+            .col-md-6.mb-3
+              label.form-label(for="phone1") Phone Number
+              input#phone1.form-control(type="number", required)
+            // Address input
+            .col-md-6.mb-3
+              label.form-label(for="address1") Address
+              textarea#address1.form-control(rows="2", required)
+            // Buttons
+            .d-flex.justify-content-end
+              button.btn.btn-secondary.me-2(type="button", data-bs-dismiss="modal") Cancel
+              button.btn.btn-primary(type="submit") Save
+// end edit modal
+// delete all modal
+#deleteAllEmployeeModal.modal.fade(tabindex="-1")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title Delete All Records
+        button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+      .modal-body
+        p Mày chắc chưa ?
+        .text-warning
+          small Xóa là không Ctrl+Z được đâu ku
+      .modal-footer
+        button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+        button.btn.btn-danger(type="button") Delete
+// end delete allall modal
+// delete modal
+#deleteEmployeeModal.modal.fade(tabindex="-1")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title Delete Record
+        button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+      .modal-body
+        p Mày chắc chưa ?
+        .text-warning
+          small Xóa là không Ctrl+Z được đâu ku
+      .modal-footer
+        button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+        button.btn.btn-danger(type="button") Delete
+// end delete modal

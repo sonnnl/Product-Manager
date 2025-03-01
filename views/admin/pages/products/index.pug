@@ -19,6 +19,16 @@ block main
                       i.material-icons &#xE15C;
                       span
                         | Xóa sản phẩm 
+                .row 
+                  hr.mt-2
+                  h2.text-center Bộ lọc và tìm kiếm
+                .row 
+                  .col-sm-6.py-2.d-flex.justify-content-lg-start.justify-content-center
+                    
+                    .btn-group
+                      each item in productFilter
+                        button(class=`btn border border-primary btn-outline-primary ${item.class}` href='#' product-status=item.status aria-current='page') #{item.name}
+
               table.table.table-striped.table-hover
                 thead
                   tr
@@ -33,57 +43,27 @@ block main
                     th Trạng thái 
                     th Hành động
                 tbody
-                  tr
-                    td
-                      span.custom-checkbox
-                        input#checkbox1(type="checkbox", name="option[]", value="1")
-                        label(for="checkbox1")
-                    td 1
-                    td 
-                        img(src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t39.30808-6/475965787_1565501590836025_3461919720201339897_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeE2S2wiOik5xpzbCMz7kR7LEXBi1V--D94RcGLVX74P3sZ84cQjEsJSUZNzCf5BkHEM1Im_08U6OmslI4R9q2vC&_nc_ohc=TIGMvWrF6q4Q7kNvgH1lk0j&_nc_oc=AdhYhTDLhvjqY59l8LUPUWW5cE4jgQ1nt6_irDuQEq-ZdZ6019uJJCIQVeMZ3GDKw1OVab5asZiMvwe2HurqKGA6&_nc_zt=23&_nc_ht=scontent.fsgn8-3.fna&_nc_gid=AwPGFyHTEt3FjqjICRzvcgo&oh=00_AYB34c0NXENxfYlOexZ5cyZQOm-2azbZaO6zziSuoOyOpw&oe=67C64107", alt="",style ="width:60px;border-radius:20%")
-                    td Anhzai
-                    td 100 tỏi
-                    td 
-                        button(class="bg-success",style="color:white") Hoạt động
-                    td
-                      a.edit(href="#", data-bs-toggle="modal", data-bs-target="#editProductModal")
-                        i.material-icons(data-bs-toggle="tooltip", title="Edit") &#xE254;
-                      a.delete(href="#", data-bs-toggle="modal", data-bs-target="#deleteEmployeeModal")
-                        i.material-icons(data-bs-toggle="tooltip", title="Delete") &#xE872;
-                  tr
-                    td
-                      span.custom-checkbox
-                        input#checkbox1(type="checkbox", name="option[]", value="1")
-                        label(for="checkbox1")
-                    td 2
-                    td 
-                        img(src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/480499483_1578451739541010_5570190103589654762_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEODM7Fm0zJmnrhrng61AZV8hJnx3n5YZTyEmfHeflhlKdZn4-RRXVnxLxspTZRatlwEYuMR9eejbckr73AJCj6&_nc_ohc=Hv1O-VLqf40Q7kNvgEL3b9m&_nc_oc=AdjHKCbkJxGL2pGb1VWyNTqqhGW7MTEiRW7dqXpKmWtfwDepQxenx4uVxsZXtFBqYyGKV6mSmhzjw3RjnGZv1usu&_nc_zt=23&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=ApfAEU1DIsGDaPBoohWNJRX&oh=00_AYCWyVD-D5B5_vAKKwYPJrxk-wTQ9eMbm9GEnm6kkXW5TA&oe=67C634FB", alt="",style ="width:60px;border-radius:20%")
-                    td Anhzai
-                    td 200 tỏi
-                    td 
-                        button(class="bg-success",style="color:white") Hoạt động
-                    td
-                      a.edit(href="#", data-bs-toggle="modal", data-bs-target="#editProductModal")
-                        i.material-icons(data-bs-toggle="tooltip", title="Edit") &#xE254;
-                      a.delete(href="#", data-bs-toggle="modal", data-bs-target="#deleteEmployeeModal")
-                        i.material-icons(data-bs-toggle="tooltip", title="Delete") &#xE872;
-                                          tr
-                    td
-                      span.custom-checkbox
-                        input#checkbox1(type="checkbox", name="option[]", value="1")
-                        label(for="checkbox1")
-                    td 1
-                    td 
-                        img(src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t39.30808-6/475965787_1565501590836025_3461919720201339897_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeE2S2wiOik5xpzbCMz7kR7LEXBi1V--D94RcGLVX74P3sZ84cQjEsJSUZNzCf5BkHEM1Im_08U6OmslI4R9q2vC&_nc_ohc=TIGMvWrF6q4Q7kNvgH1lk0j&_nc_oc=AdhYhTDLhvjqY59l8LUPUWW5cE4jgQ1nt6_irDuQEq-ZdZ6019uJJCIQVeMZ3GDKw1OVab5asZiMvwe2HurqKGA6&_nc_zt=23&_nc_ht=scontent.fsgn8-3.fna&_nc_gid=AwPGFyHTEt3FjqjICRzvcgo&oh=00_AYB34c0NXENxfYlOexZ5cyZQOm-2azbZaO6zziSuoOyOpw&oe=67C64107", alt="",style ="width:60px;border-radius:20%")
-                    td Anhzai
-                    td 100 tỏi
-                    td 
-                        button(class="bg-danger",style="color:white") Dừng Hoạt động
-                    td
-                      a.edit(href="#", data-bs-toggle="modal", data-bs-target="#editProductModal")
-                        i.material-icons(data-bs-toggle="tooltip", title="Edit") &#xE254;
-                      a.delete(href="#", data-bs-toggle="modal", data-bs-target="#deleteEmployeeModal")
-                        i.material-icons(data-bs-toggle="tooltip", title="Delete") &#xE872;
+                    each product,index in products
+                        tr
+                            td
+                                span.custom-checkbox
+                                    input(type="checkbox", name="option[]", value="1", id=`checkbox-${product.id}`)
+                                    label(for=`checkbox-${product.id}`)
+                            td #{index+1}
+                            td 
+                                img(src=product.thumbnail, alt="",style ="width:60px;border-radius:20%")
+                            td #{product.title}
+                            td #{product.price}$
+                            td 
+                                if product.status == "active"
+                                    button(class="bg-success",style="color:white") Hoạt động
+                                else 
+                                    button(class="bg-danger",style="color:white") Ngừng Hoạt động
+                            td
+                                a.edit(href="#", data-bs-toggle="modal", data-bs-target="#editProductModal")
+                                    i.material-icons(data-bs-toggle="tooltip", title="Edit") &#xE254;
+                                a.delete(href="#", data-bs-toggle="modal", data-bs-target="#deleteEmployeeModal")
+                                    i.material-icons(data-bs-toggle="tooltip", title="Delete") &#xE872;
               .clearfix
                 .hint-text
                   | Showing 
@@ -105,115 +85,5 @@ block main
                     a.page-link(href="#") 5
                   li.page-item
                     a.page-link(href="#") Next
-              // add-modal
-              #addProductModal.modal.fade(tabindex="-1", aria-labelledby="addProductModalLabel", aria-hidden="true")
-                .modal-dialog.modal-lg
-                  .modal-content.w-100
-                    .modal-header.bg-primary.text-white
-                      h5#addProductModalLabel.modal-title ThêmThêm sản phẩm
-                        
-                      button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
-                    .modal-body
-                      form
-                        .row
-                          // Name input
-                          .col-md-6.mb-3
-                            label.form-label(for="name1") Name
-                            input#name1.form-control(type="text", required)
-                          // Email input
-                          .col-md-6.mb-3
-                            label.form-label(for="email1")
-                              | Email
-                              | address
-                            input#email1.form-control(type="email", required)
-                          // Phone input
-                          .col-md-6.mb-3
-                            label.form-label(for="phone1")
-                              | Phone
-                              | Number
-                            input#phone1.form-control(type="number", required)
-                          // Address input
-                          .col-md-6.mb-3
-                            label.form-label(for="address1") Address
-                            textarea#address1.form-control(rows="2", required)
-                        // Buttons
-                        .d-flex.justify-content-end
-                          button.btn.btn-secondary.me-2(type="button", data-bs-dismiss="modal") Cancel
-                          button.btn.btn-primary(type="submit") Add
-              // end add modal
-              // edit modal
-              #editProductModal.modal.fade(tabindex="-1", aria-labelledby="editProductModalLabel", aria-hidden="true")
-                .modal-dialog.modal-lg
-                  .modal-content.w-100
-                    .modal-header.bg-primary.text-white
-                      h5#editProductModalLabel.modal-title Sửa sản phẩm
-                      button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
-                    .modal-body
-                      form
-                        .row
-                          // Name input
-                          .col-md-6.mb-3
-                            label.form-label(for="name1") Name
-                            input#name1.form-control(type="text", required)
-                          // Email input
-                          .col-md-6.mb-3
-                            label.form-label(for="email1")
-                              | Email
-                              | address
-                            input#email1.form-control(type="email", required)
-                          // Phone input
-                          .col-md-6.mb-3
-                            label.form-label(for="phone1")
-                              | Phone
-                              | Number
-                            input#phone1.form-control(type="number", required)
-                          // Address input
-                          .col-md-6.mb-3
-                            label.form-label(for="address1") Address
-                            textarea#address1.form-control(rows="2", required)
-                        // Buttons
-                        .d-flex.justify-content-end
-                          button.btn.btn-secondary.me-2(type="button", data-bs-dismiss="modal") Cancel
-                          button.btn.btn-primary(type="submit") Save
-              // end edit modal
-              // delete all modal
-              #deleteAllEmployeeModal.modal.fade(tabindex="-1")
-                .modal-dialog
-                  .modal-content
-                    .modal-header
-                      h5.modal-title
-                        | Delete
-                        | All Records
-                      button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
-                    .modal-body
-                      p Mày chắc chưa ?
-                      .text-warning
-                        small
-                          | Xóa là không Ctrl+Z
-                          | được đâu ku
-                    .modal-footer
-                      button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
-                      button.btn.btn-danger(type="button")
-                        | Delete
-              // end delete allall modal
-              // delete modal
-              #deleteEmployeeModal.modal.fade(tabindex="-1")
-                .modal-dialog
-                  .modal-content
-                    .modal-header
-                      h5.modal-title
-                        | Delete
-                        | Record
-                      button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
-                    .modal-body
-                      p Mày chắc chưa ?
-                      .text-warning
-                        small
-                          | Xóa là không Ctrl+Z
-                          | được đâu ku
-                    .modal-footer
-                      button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
-                      button.btn.btn-danger(type="button")
-                        | Delete
-              // end delete modal
+              include ../../partials/modals.pug
       // main-content-end
