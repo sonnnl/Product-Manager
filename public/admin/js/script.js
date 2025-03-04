@@ -51,3 +51,18 @@ if (filterButtons.length > 0) {
     });
   });
 }
+
+const searchProductButton = document.querySelector("#form-search");
+if (searchProductButton) {
+  searchProductButton.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let url = new URL(window.location.href);
+    let keyword = e.target[0].value;
+    if (keyword === "") {
+      url.searchParams.delete("keyword");
+    } else {
+      url.searchParams.set("keyword", keyword);
+    }
+    window.location.href = url.href;
+  });
+}

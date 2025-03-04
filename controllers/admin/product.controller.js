@@ -20,10 +20,10 @@ module.exports.product = async (req, res) => {
   ];
   //xu ly button active//
   if (req.query.status) {
-    const index = productFilter.findIndex((item) => {
+    const productStatus = productFilter.find((item) => {
       return item.status == req.query.status;
     });
-    productFilter[index].class = "active";
+    productStatus.class = "active";
   } else {
     productFilter[0].class = "active";
   }
@@ -34,12 +34,15 @@ module.exports.product = async (req, res) => {
   if (req.query.status) {
     finder.status = req.query.status;
   }
+  if (req.query.keyword) {
+    finder.title = new RegExp(req.query.keyword, "i");
+  }
   //ket thuc xu ly tim kiem
   const products = await Product.find(finder);
-  console.log(products);
   res.render("admin/pages/products/index.pug", {
     pageTitle: "Products",
     products: products,
     productFilter: productFilter,
+    title: req.query.keyword,
   });
 };

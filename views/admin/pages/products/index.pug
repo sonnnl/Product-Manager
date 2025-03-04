@@ -27,7 +27,16 @@ block main
                     
                     .btn-group
                       each item in productFilter
-                        button(class=`btn border border-primary btn-outline-primary ${item.class}` href='#' product-status=item.status aria-current='page') #{item.name}
+                        button(class=`btn ms-0 border border-primary btn-outline-primary ${item.class}` product-status=item.status ) #{item.name}
+                  .col-sm-6.py-2.d-flex.justify-content-lg-end.justify-content-center
+                    nav.navbar.navbar-light.bg-light.rounded
+                      .container-fluid
+                        form.d-flex#form-search
+                          input.form-control.me-2(type="search", placeholder="Nhập từ khóa", aria-label="Search", value=title)
+                          button.btn.btn-outline-success(type="submit" style="color:green;min-width:auto") Search
+
+
+
 
               table.table.table-striped.table-hover
                 thead
