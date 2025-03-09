@@ -1,4 +1,7 @@
 extends ../../layouts/default.pug
+include ../../mixins/product-filter
+include ../../mixins/product-search
+include ../../mixins/pagination
 block main 
       // main-content-start
       .main-content
@@ -24,16 +27,10 @@ block main
                   h2.text-center Bộ lọc và tìm kiếm
                 .row 
                   .col-sm-6.py-2.d-flex.justify-content-lg-start.justify-content-center
+                    +product-filter(productFilter)
                     
-                    .btn-group
-                      each item in productFilter
-                        button(class=`btn ms-0 border border-primary btn-outline-primary ${item.class}` product-status=item.status ) #{item.name}
                   .col-sm-6.py-2.d-flex.justify-content-lg-end.justify-content-center
-                    nav.navbar.navbar-light.bg-light.rounded
-                      .container-fluid
-                        form.d-flex#form-search
-                          input.form-control.me-2(type="search", placeholder="Nhập từ khóa", aria-label="Search", value=title)
-                          button.btn.btn-outline-success(type="submit" style="color:green;min-width:auto") Search
+                    +product-search(title)
 
 
 
@@ -58,7 +55,7 @@ block main
                                 span.custom-checkbox
                                     input(type="checkbox", name="option[]", value="1", id=`checkbox-${product.id}`)
                                     label(for=`checkbox-${product.id}`)
-                            td #{index+1}
+                            td #{limit*(pagination.currentPage-1)+index+1}
                             td 
                                 img(src=product.thumbnail, alt="",style ="width:60px;border-radius:20%")
                             td #{product.title}
@@ -73,26 +70,6 @@ block main
                                     i.material-icons(data-bs-toggle="tooltip", title="Edit") &#xE254;
                                 a.delete(href="#", data-bs-toggle="modal", data-bs-target="#deleteEmployeeModal")
                                     i.material-icons(data-bs-toggle="tooltip", title="Delete") &#xE872;
-              .clearfix
-                .hint-text
-                  | Showing 
-                  b 5 
-                  | out of 
-                  b 25
-                ul.pagination
-                  li.page-item.disabled
-                    a.page-link(href="#") Previous
-                  li.page-item.active
-                    a.page-link(href="#") 1
-                  li.page-item
-                    a.page-link(href="#") 2
-                  li.page-item
-                    a.page-link(href="#") 3
-                  li.page-item
-                    a.page-link(href="#") 4
-                  li.page-item
-                    a.page-link(href="#") 5
-                  li.page-item
-                    a.page-link(href="#") Next
+              +pagination(pagination)
               include ../../partials/modals.pug
       // main-content-end

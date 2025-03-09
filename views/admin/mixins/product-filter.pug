@@ -1,0 +1,4 @@
+mixin product-filter(productFilter)
+    .btn-group
+        each item in productFilter
+            button(class=`btn ms-0 border border-primary btn-outline-primary ${item.class}` product-status=item.status ) #{item.name}

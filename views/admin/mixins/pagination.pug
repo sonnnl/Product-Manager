@@ -1,0 +1,18 @@
+mixin pagination(pagination)
+    .clearfix
+        .hint-text
+          | Showing 
+          b 4 
+          | out of 
+          b #{pagination.totalPage-1}
+        ul.pagination
+          li.page-item(class=(pagination.currentPage === 1 ? "disabled" : ""))
+            a.page-link.page-link-navigation(href="#") Previous
+          -for(let i=1;i<pagination.totalPage;i++)
+              li.page-item
+                if pagination.currentPage==i
+                  a(class="page-link page-link-number active" href="#") #{i}
+                else
+                  a(class="page-link page-link-number" href="#") #{i}
+          li.page-item(class=(pagination.currentPage == pagination.totalPage-1 ? "disabled" : ""))
+            a.page-link.page-link-navigation(href="#") Next

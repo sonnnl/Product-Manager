@@ -66,3 +66,34 @@ if (searchProductButton) {
     window.location.href = url.href;
   });
 }
+//Pagination Start
+const paginationButtons = document.querySelectorAll(".page-link-number");
+if (paginationButtons.length > 0) {
+  paginationButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      let url = new URL(window.location.href);
+      let page = btn.innerHTML;
+      url.searchParams.set("page", page);
+      window.location.href = url.href;
+    });
+  });
+}
+const pageNavigationButtons = document.querySelectorAll(
+  ".page-link-navigation"
+);
+if (pageNavigationButtons.length > 0) {
+  pageNavigationButtons.forEach((btn) => {
+    const url = new URL(window.location.href);
+    const page = parseInt(url.searchParams.get("page"));
+    btn.addEventListener("click", () => {
+      if (btn.innerHTML === "Previous") {
+        url.searchParams.set("page", page - 1);
+      } else {
+        url.searchParams.set("page", page + 1);
+      }
+      window.location.href = url.href;
+    });
+  });
+}
+
+//Pagination end

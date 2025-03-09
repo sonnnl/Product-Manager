@@ -1,0 +1,6 @@
+mixin product-search(title)
+    nav.navbar.navbar-light.bg-light.rounded
+        .container-fluid
+            form.d-flex#form-search
+                input.form-control.me-2(type="search", placeholder="Nhập từ khóa", aria-label="Search", value=title)
+                button.btn.btn-outline-success(type="submit" style="color:green;min-width:auto") Search

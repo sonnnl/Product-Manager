@@ -1,48 +1,41 @@
 // GET - /admin/products
+const statusFilter = require("../../helpers/filter");
+const search = require("../../helpers/search");
 const Product = require("../../models/product.model");
+const paginationHelpers = require("../../helpers/pagination");
 module.exports.product = async (req, res) => {
-  let productFilter = [
-    {
-      name: "Tất cả",
-      status: "",
-      class: "",
-    },
-    {
-      name: "Hoạt động",
-      status: "active",
-      class: "",
-    },
-    {
-      name: "Ngừng hoạt động",
-      status: "inactive",
-      class: "",
-    },
-  ];
-  //xu ly button active//
-  if (req.query.status) {
-    const productStatus = productFilter.find((item) => {
-      return item.status == req.query.status;
-    });
-    productStatus.class = "active";
-  } else {
-    productFilter[0].class = "active";
-  }
-  //end button active
-
-  //Xu ly tim kiem
+  //filter
+  const productFilter = statusFilter(req.query);
+  //end filter function
   let finder = { delete: false };
+  // xu ly status
   if (req.query.status) {
     finder.status = req.query.status;
   }
-  if (req.query.keyword) {
-    finder.title = new RegExp(req.query.keyword, "i");
-  }
+  // end xu ly status
+  //Xu ly tim kiem
+  search(req.query, finder);
   //ket thuc xu ly tim kiem
-  const products = await Product.find(finder);
+
+  //pagination
+  const countProduct = await Product.collection.count();
+  const pagination = paginationHelpers(
+    (paginationObject = {
+      currentPage: 1,
+      limit: 4,
+    }),
+    req.query,
+    countProduct
+  );
+  //end pagination
+  const products = await Product.find(finder)
+    .limit(paginationObject.limit)
+    .skip((paginationObject.currentPage - 1) * paginationObject.limit);
   res.render("admin/pages/products/index.pug", {
     pageTitle: "Products",
     products: products,
     productFilter: productFilter,
     title: req.query.keyword,
+    pagination: pagination,
   });
 };
