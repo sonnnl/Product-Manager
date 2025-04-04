@@ -2,6 +2,7 @@ extends ../../layouts/default.pug
 include ../../mixins/product-filter
 include ../../mixins/product-search
 include ../../mixins/pagination
+include ../../mixins/form-change-multi
 block main 
       // main-content-start
       .main-content
@@ -31,6 +32,8 @@ block main
                     
                   .col-sm-6.py-2.d-flex.justify-content-lg-end.justify-content-center
                     +product-search(title)
+                .row 
+                  +form-change-multi(`${prefixAdmin}/products/change-multi?_method=PATCH`)
 
 
 
@@ -38,10 +41,11 @@ block main
               table.table.table-striped.table-hover
                 thead
                   tr
-                    th
+                    th(style="display:flex")
                       span.custom-checkbox
-                        input#selectAll(type="checkbox")
-                        label(for="selectAll")
+                        input#selectAll(type="checkbox", select-all-checkbox)
+                        label(for="selectAll") 
+                      span All
                     th STT
                     th Hình ảnh
                     th Tiêu đề
@@ -53,7 +57,7 @@ block main
                         tr
                             td
                                 span.custom-checkbox
-                                    input(type="checkbox", name="option[]", value="1", id=`checkbox-${product.id}`)
+                                    input(type="checkbox", name="option[]", value="1", id=`checkbox-${product.id}`,checkbox_product_button, product-id = product.id)
                                     label(for=`checkbox-${product.id}`)
                             td #{pagination.limit*(pagination.currentPage-1)+index+1}
                             td 
@@ -71,7 +75,7 @@ block main
                                 a.delete(href="#", data-bs-toggle="modal", data-bs-target="#deleteEmployeeModal")
                                     i.material-icons(data-bs-toggle="tooltip", title="Delete") &#xE872;
               +pagination(pagination)
-              form(action, method="POST",data-path=`${prefixAdmin}/products/change-status`,form-change-status)  
+              form(action, method="POST",data-path=`${prefixAdmin}/products/change-status`,form-change-status)   
               include ../../partials/modals.pug
                 
       // main-content-end

@@ -97,3 +97,41 @@ if (pageNavigationButtons.length > 0) {
 }
 
 //Pagination end
+
+//select all product
+const checkingAllButton = document.querySelector("input[select-all-checkbox]");
+const checkingButtons = document.querySelectorAll(
+  "input[checkbox_product_button]"
+);
+if (checkingAllButton) {
+  checkingAllButton.addEventListener("click", () => {
+    if (checkingButtons) {
+      if (checkingAllButton.checked) {
+        checkingButtons.forEach((item) => {
+          item.checked = true;
+        });
+      } else {
+        checkingButtons.forEach((item) => {
+          item.checked = false;
+        });
+      }
+    }
+  });
+}
+if (checkingButtons) {
+  const checkingAllButton = document.querySelector(
+    "input[select-all-checkbox]"
+  );
+  checkingButtons.forEach((item) => {
+    item.addEventListener("click", () => {
+      let cnt = document.querySelectorAll(
+        "input[checkbox_product_button]:checked"
+      ).length;
+      if (cnt === checkingButtons.length) {
+        checkingAllButton.checked = true;
+      } else {
+        checkingAllButton.checked = false;
+      }
+    });
+  });
+}

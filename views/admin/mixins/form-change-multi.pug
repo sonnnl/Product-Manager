@@ -1,0 +1,12 @@
+mixin form-change-multi(path)
+    form.form-inline.mt-3(action=path,method = "POST", form-change-multi)
+        .row
+            .form-group.col-lg-3.mb-2
+                select.form-select(aria-label='Default select example', name="type")
+                    option(selected,value='active') Đang hoạt động
+                    option(value='inactive') Dừng hoạt động
+            .form-group.col-lg-7
+                label.sr-only(for='inputPassword2') Id
+                input#inputPassword2.form-control(type='text' placeholder='ID:', name = 'ids', value ="")
+            .col-lg-2.text-center
+                button.btn.btn-primary(type='submit') Thay đổi            
